@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image as Background Link</title>
+    <style>
+        /* Make the body take up the entire height of the viewport */
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Make the image cover the whole background */
+        .background {
+            background-image: url('https://i.redd.it/6u4f66ojsgbc1.gif'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Optional: Add a simple overlay to improve readability */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Link container for the entire page -->
+    <a href="https://www.example.com" class="background">
+        <div class="overlay"></div>
+        <!-- Content can go here, if needed -->
+    </a>
+
+</body>
+</html>
