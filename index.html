@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image as Background Link</title>
+    <title>Full Screen Background with Sounds</title>
     <style>
-        /* Make the body take up the entire height of the viewport */
         html, body {
             height: 100%;
             margin: 0;
+            overflow: hidden;
         }
 
-        /* Make the image cover the whole background */
         .background {
             background-image: url('https://i.redd.it/6u4f66ojsgbc1.gif'); /* Replace with your image URL */
             background-size: cover;
@@ -21,26 +20,151 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
-        /* Optional: Add a simple overlay to improve readability */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Hide audio controls */
+        audio {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Link container for the entire page -->
-    <a href="https://www.example.com" class="background">
+    <div class="background" id="fullscreen-container">
         <div class="overlay"></div>
-        <!-- Content can go here, if needed -->
-    </a>
+    </div>
+
+    <!-- Two Audio Elements -->
+    <audio id="backgroundAudio1" autoplay loop>
+        <source src="ezz.mp3" type="audio/mp3"> <!-- Replace with your first audio file -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="backgroundAudio2" autoplay loop>
+        <source src="ez.mp3" type="audio/mp3"> <!-- Replace with your second audio file -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Function to request fullscreen
+        function enterFullscreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
+        // Ensure the page goes fullscreen on load and plays the sounds
+        window.onload = function() {
+            enterFullscreen();  // Enter fullscreen immediately
+            const audio1 = document.getElementById('backgroundAudio1');
+            const audio2 = document.getElementById('backgroundAudio2');
+
+            // Play both audio files in a loop
+            audio1.play();
+            audio2.play();
+        };
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Background with Sounds</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .background {
+            background-image: url('https://i.redd.it/6u4f66ojsgbc1.gif'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Hide audio controls */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background" id="fullscreen-container">
+        <div class="overlay"></div>
+    </div>
+
+    <!-- Two Audio Elements -->
+    <audio id="backgroundAudio1" autoplay loop>
+        <source src="ezz.mp3" type="audio/mp3"> <!-- Replace with your first audio file -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <audio id="backgroundAudio2" autoplay loop>
+        <source src="ez.mp3" type="audio/mp3"> <!-- Replace with your second audio file -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Function to request fullscreen
+        function enterFullscreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+
+        // Ensure the page goes fullscreen on load and plays the sounds
+        window.onload = function() {
+            enterFullscreen();  // Enter fullscreen immediately
+            const audio1 = document.getElementById('backgroundAudio1');
+            const audio2 = document.getElementById('backgroundAudio2');
+
+            // Play both audio files in a loop
+            audio1.play();
+            audio2.play();
+        };
+    </script>
 
 </body>
 </html>
